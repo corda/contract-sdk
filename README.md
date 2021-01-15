@@ -49,11 +49,11 @@ annotate the contract and the commands themselves with what you want the contrac
     class MyContract : Contract, StandardContract() {
     
       interface Commands : CommandData {
-          @Annotation_Defining_What_The_Command_Requiers_Or_Enforces_When_Present_On_The_Transaction_1
-          @Annotation_Defining_What_The_Command_Requiers_Or_Enforces_When_Present_On_The_Transaction_2
+          @Annotation_Defining_What_The_Command_Requires_Or_Enforces_When_Present_On_The_Transaction_1
+          @Annotation_Defining_What_The_Command_Requires_Or_Enforces_When_Present_On_The_Transaction_2
           class Action : Commands
 
-          @Annotation_Defining_What_The_Command_Requiers_Or_Enforces_When_Present_On_The_Transaction_3
+          @Annotation_Defining_What_The_Command_Requires_Or_Enforces_When_Present_On_The_Transaction_3
           class SomeOtherAction : Commands
       }
 
