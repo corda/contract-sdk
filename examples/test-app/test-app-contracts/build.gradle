@@ -18,5 +18,5 @@ dependencies {
     testCompile "$corda_release_group:corda-node-driver:$corda_release_version"
 
     // CorDapp dependencies.
-    cordaCompile "com.r3.corda.lib.contracts:corda-contract-sdk:$corda_contracts_sdk_version" //you could use "compile" instead of "cordaCompile" if you want to include the dependency in the contracts jar (i.e. fat jar it)
+    cordaCompile "com.r3.corda.lib.contracts:contract-sdk:$corda_contracts_sdk_version" //you could use "compile" instead of "cordaCompile" if you want to include the dependency in the contracts jar (i.e. fat jar it)
 }

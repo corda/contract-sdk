@@ -18,7 +18,7 @@ You will have a choice to make whether you want to
 
 Both are possible. The CorDapp in examples/test-app shows the latter usage and it adds the dependency like this:
 
-`cordaCompile "com.r3.corda.lib.contracts:corda-contract-sdk:$corda_contracts_sdk_version"`
+`cordaCompile "com.r3.corda.lib.contracts:contract-sdk:$corda_contracts_sdk_version"`
 
 ### You got the dependency set, how do you write contracts now?
 

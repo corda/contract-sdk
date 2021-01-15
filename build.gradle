@@ -125,7 +125,7 @@ configure(publishProjects) { subproject ->
                 from components.java
 
                 groupId subproject.group
-                artifactId "corda-${subproject.name}"
+                artifactId "${subproject.name}"
                 artifact tasks.sourceJar
                 artifact tasks.javadocJar
 
