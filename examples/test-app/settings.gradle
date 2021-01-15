@@ -1,0 +1,2 @@
+include 'test-app-contracts'
+include 'test-app-workflows'
