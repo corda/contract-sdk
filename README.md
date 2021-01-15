@@ -169,3 +169,7 @@ allow the `Issue` command issue exactly one state of type `StateOne` but at leas
     }
 
 Remember, if you don't provide the `targetClasses` parameter then the default behaviour is that the annotation targets all states whose types belong to the contract.
+
+## Disclaimer
+
+Whilst each of the verification logic behind each annotation has been tested, always test your contract logic independently before using it in production.
