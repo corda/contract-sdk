@@ -11,12 +11,20 @@ The Contract SDK itself is a CorDapp. In order to use its power you need to add 
 Typically, you would be referring to the Contract SDK from within your contracts module of your CorDapp so adding the dependency
 to build.gradle of the contracts module makes most sense.
 
-You will have a choice to make whether you want to
+You will have a choice to make, whether you want to:
 
-* fat jar the Contract SDK CorDapp into your contracts jar or
-* keep the Contract SDK CorDapp out of the contracts jar and manually link the CorDapp SDK jar to the Corda transaction as attachment
+1) Fat jar the Contract SDK CorDapp into your contracts jar or
+2) Keep the Contract SDK CorDapp out of your contracts jar and manually add the Contract SDK jar to the Corda transaction as attachment
 
-Both are possible. The CorDapp in examples/test-app shows the latter usage and it adds the dependency like this:
+The second option has possible negative security implications so unless you are absolutely sure you know what you are doing, it is likely
+to be a better idea to go for the fat jarring. The CorDapp in [examples/test-app](examples/test-app) shows the latter usage purely to illustrate the extra step of attaching the 
+Contract SDK jar manually.
+
+In order to fat jar the Contract SDK into your contracts jar, you would declare your dependency as:
+
+`compile "com.r3.corda.lib.contracts:contract-sdk:$corda_contracts_sdk_version"`
+
+In order to keep the Contract SDK jar separate, you would declare your dependency as:
 
 `cordaCompile "com.r3.corda.lib.contracts:contract-sdk:$corda_contracts_sdk_version"`
 
