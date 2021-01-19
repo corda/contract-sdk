@@ -177,6 +177,10 @@ The Contract SDK is an open-source project and contributions are welcome as seen
 
 The contributors can be found here: [Contributors](CONTRIBUTORS.md)
 
+## Feedback
+
+Any suggestions / issues are welcome in the issues section: <https://github.com/corda/contract-sdk/issues/new>
+
 ## Disclaimer
 
 Whilst each of the verification logic behind each annotation has been tested, always test your contract logic and your entire CorDapp independently and thoroughly before using it in production.
