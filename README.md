@@ -179,6 +179,11 @@ The Contract SDK is an open-source project and contributions are welcome as seen
 
 Any suggestions / issues are welcome in the issues section: <https://github.com/corda/contract-sdk/issues/new>
 
+## Versioning
+
+* latest code is in `main` branch
+* tags on `main` branch mark versions (e.g. v0.9)
+
 ## Disclaimer
 
 Whilst each of the verification logic behind each annotation has been tested, always test your contract logic and your entire CorDapp independently and thoroughly before using it in production. Also, please note that
