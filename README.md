@@ -64,7 +64,7 @@ Note that `MyContract` here still must extend the `Contract` class, else it won'
 
 ### What annotations are available to you?
 
-As of now there are over 30 annotations that you can use on the contract or command level. You can view them further down in this readme or in the `contract-sdk/src/main/kotlin/net/corda/contractsdk/annotations/Annotations.kt` file. 
+As of now there are over 30 annotations that you can use on the contract or command level. You can view them further down in this readme or in [Annotations.kt](contract-sdk/src/main/kotlin/net/corda/contractsdk/annotations/Annotations.kt). 
 Their names follow a convention that should make it easier to find the annotation you are after. Each annotation follows this pattern:
 
 `@[Require|Permit|Forbid][Subject][Scope][AnyOtherQualifier](parameter1, parameter2...)` 
