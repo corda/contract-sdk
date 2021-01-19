@@ -175,8 +175,6 @@ Remember, if you don't provide the `targetClasses` parameter then the default be
 
 The Contract SDK is an open-source project and contributions are welcome as seen here: [Contributing](CONTRIBUTING.md)
 
-The contributors can be found here: [Contributors](CONTRIBUTORS.md)
-
 ## Feedback
 
 Any suggestions / issues are welcome in the issues section: <https://github.com/corda/contract-sdk/issues/new>
