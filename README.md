@@ -173,4 +173,4 @@ Remember, if you don't provide the `targetClasses` parameter then the default be
 
 ## Disclaimer
 
-Whilst each of the verification logic behind each annotation has been tested, always test your contract logic independently before using it in production.
+Whilst each of the verification logic behind each annotation has been tested, always test your contract logic and your entire CorDapp independently and thoroughly before using it in production.
