@@ -171,6 +171,12 @@ allow the `Issue` command issue exactly one state of type `StateOne` but at leas
 
 Remember, if you don't provide the `targetClasses` parameter then the default behaviour is that the annotation targets all states whose types belong to the contract.
 
+## Contributing
+
+The Contract SDK is an open-source project and contributions are welcome as seen here: [Contributing](CONTRIBUTING.md)
+
+The contributors can be found here: [Contributors](CONTRIBUTORS.md)
+
 ## Disclaimer
 
 Whilst each of the verification logic behind each annotation has been tested, always test your contract logic and your entire CorDapp independently and thoroughly before using it in production.
