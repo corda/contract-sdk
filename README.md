@@ -187,4 +187,4 @@ Any suggestions / issues are welcome in the issues section: <https://github.com/
 ## Disclaimer
 
 Whilst each of the verification logic behind each annotation has been tested, always test your contract logic and your entire CorDapp independently and thoroughly before using it in production. Also, please note that
-R3 doesn't provide any support for this utility and responding to any issues raised will be on best effort basis.
+R3 doesn't provide any support for this utility. Responding to any issues raised will be on best effort basis.
