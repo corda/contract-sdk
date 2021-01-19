@@ -14,4 +14,4 @@ WIP stands for Work In Progress.
 Huge new features can be named feat/<description of feature>, for example feat/recognize_reference_states.
 The idea is that just by looking at the branch name we can estimate the size of the changes contained within that branch.
 
-All new changes should be added from custom branches that are merged to main by way of a pull request.
+All new changes should be added from custom branches that are merged to main by way of a pull request. The pull request will have to be approved by one of the code owners.
