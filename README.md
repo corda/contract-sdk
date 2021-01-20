@@ -136,7 +136,7 @@ do this. But you can still achieve the same effect by using a `@*List` annotatio
   
 ## What if you need more custom verification logic?  
 
-If you need to provide further verification logic, which is not offered by the annotations, then you have two options.
+If you need to provide further verification logic, which is not offered by the annotations, then you have two options:
 
 1. Implement the `verifyFurther` method of the `StandardContract` class, which you are extending your contract from. 
 This method will be called on every transaction the contract verifies.
