@@ -97,7 +97,7 @@ must implement that interface.
 This means that if you want to use annotations referring to statuses or roles (e.g. `@PermitStatusOnInput` or `@RequireDistinctPartiesWithinEachInputState`), you will also need to use those two interfaces when defining the Contract states.
 You can see an example of that in the [examples/test-app](examples/test-app), where the `Membership` states implement both of the interfaces.
 
-This is the whole list of annotations currently available for use. Click on the black triangle for a short description.
+Below is the whole list of annotations currently available for use. Click on the black triangle for a short description.
 
 * Require
   - <details><summary>RequireNumberOfStatesOnInput</summary>The number of input states must be the one provided as parameter.</details>
