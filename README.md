@@ -13,12 +13,12 @@ to the `build.gradle` of the contracts module makes most sense.
 
 You will have a choice to make, whether you want to:
 
-1) Fat jar the Contract SDK CorDapp into your contracts jar or
-2) Keep the Contract SDK CorDapp out of your contracts jar and manually add the Contract SDK jar to the Corda transactions as attachment. Using, for example, [this helper function](examples/test-app/test-app-workflows/src/main/kotlin/net/corda/contractsdk/testapp/Extensions.kt).
+1) Include the Contract SDK CorDapp code into your contracts jar (aka "fat jar") or
+2) Keep the Contract SDK CorDapp out of your contracts jar, and manually add the Contract SDK jar to the Corda transactions as attachment. Using, for example, [this helper function](examples/test-app/test-app-workflows/src/main/kotlin/net/corda/contractsdk/testapp/Extensions.kt).
 
 If you decide for the second option you need to provide checks stopping a potential attacker from using different (and possibly malicious) version of the Contract SDK jar to the one intended. 
 
-In order to fat jar the Contract SDK into your contracts jar, you would declare your dependency as:
+In order to include the Contract SDK code into your contracts jar, you would declare your dependency as:
 
 `compile "com.r3.corda.lib.contracts:contract-sdk:$corda_contracts_sdk_version"`
 
