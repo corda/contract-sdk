@@ -193,6 +193,6 @@ Any suggestions / issues are welcome in the issues section: <https://github.com/
 
 ## Disclaimer
 
-Please note that this project is in proof-of-concept stage and the only testing it has gone through are the unit tests in it and some ad-hoc testing on the deployed [test-app](examples/test-app). 
+Please note that this project is in proof-of-concept stage and the only testing it has gone through are the unit tests present in the project and some ad-hoc testing on the deployed [test-app](examples/test-app). 
 Bear that in mind should you want to use this project in, say, production. Always test your contract logic and your entire CorDapp independently and thoroughly. 
 Also, please note that R3 doesn't provide any support for this project. Responding to any issues raised will be on best effort basis.
