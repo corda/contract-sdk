@@ -1,4 +1,4 @@
-package net.corda.contractsdk.testappcontracts.test
+package net.corda.contractsdk.testapp.contracts.test
 
 import net.corda.contractsdk.testapp.contracts.LastingMembershipState
 import net.corda.contractsdk.testapp.contracts.MembershipContract
