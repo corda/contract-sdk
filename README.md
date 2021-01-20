@@ -28,7 +28,7 @@ In order to keep the Contract SDK jar separate, you would declare your dependenc
 
 ### You got the dependency set, how do you write contracts now?
 
-Normally you would go writing your contract like this:
+Normally, you would go writing your contract like this:
 
     class MyContract : Contract {
 
