@@ -7,7 +7,7 @@
 
 ### What do you need to do to use it?
 
-The Contract SDK itself is a CorDapp. In order to use its power you need to add a dependency to it in your build.gradle file. 
+The Contract SDK itself is a CorDapp. In order to use its power you need to add it as a dependency in your build.gradle file. 
 Typically, you would be referring to the Contract SDK from within your contracts module of your CorDapp so adding the dependency
 to build.gradle of the contracts module makes most sense.
 
