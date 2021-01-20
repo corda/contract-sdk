@@ -1,7 +1,6 @@
 package net.corda.contractsdk.testapp.flows
 
 import co.paralleluniverse.fibers.Suspendable
-import net.corda.contractsdk.testapp.attachContractSDKJar
 import net.corda.contractsdk.testappcontracts.*
 import net.corda.core.contracts.ContractState
 import net.corda.core.contracts.LinearState
@@ -40,8 +39,6 @@ class IssueInitiator(val membershipType: MembershipType, val issuer: Party, val 
             MembershipType.LASTING -> txBuilder.addOutputState(LastingMembershipState(owner, issuer, status, identifier))
             MembershipType.ONE_USE -> txBuilder.addOutputState(OneUseMembershipState(owner, issuer, status, identifier))
         }
-        //unless we fat-jarred the Contract SDK jar into the contracts jar we need to attach the Contract SDK jar manually. Corda won't do this automatically.
-        txBuilder.attachContractSDKJar(serviceHub)
 
         val locallySigned = serviceHub.signInitialTransaction(txBuilder)
         val sessions = (listOf(issuer, owner) - ourIdentity).map { initiateFlow(it) }
@@ -91,9 +88,6 @@ class ModifyInitiator(val identifier : String, val command : String, val status:
         txBuilder.addInputState(inputState)
         txBuilder.addOutputState(inputStateData.withStatus(status) as ContractState)
 
-        //unless we fat-jarred the Contract SDK jar into the contracts jar we need to attach the Contract SDK jar manually. Corda won't do this automatically.
-        txBuilder.attachContractSDKJar(serviceHub)
-
         val locallySigned = serviceHub.signInitialTransaction(txBuilder)
         return subFlow(FinalityFlow(locallySigned, listOf(initiateFlow(inputStateOwner))))
     }
@@ -127,9 +121,6 @@ class DeissueInitiator(val identifier : String, val command : String) : FlowLogi
             else -> throw RuntimeException("Unrecognized command '$command'")
         }
         txBuilder.addInputState(inputState)
-
-        //unless we fat-jarred the Contract SDK jar into the contracts jar we need to attach the Contract SDK jar manually. Corda won't do this automatically.
-        txBuilder.attachContractSDKJar(serviceHub)
 
         val locallySigned = serviceHub.signInitialTransaction(txBuilder)
         val sessionWithTheOtherParticipants = ((inputStateData as ContractState).participants - ourIdentity).map { initiateFlow(it) }
