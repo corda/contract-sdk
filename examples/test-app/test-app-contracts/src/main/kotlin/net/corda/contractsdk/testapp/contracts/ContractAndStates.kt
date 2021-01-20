@@ -1,4 +1,4 @@
-package net.corda.contractsdk.testappcontracts
+package net.corda.contractsdk.testapp.contracts
 
 import net.corda.contractsdk.StandardContract
 import net.corda.contractsdk.annotations.*
@@ -42,7 +42,7 @@ class MembershipContract : StandardContract(), Contract {
     }
 
     companion object {
-        val ID = "net.corda.contractsdk.testappcontracts.MembershipContract"
+        val ID = "net.corda.contractsdk.testapp.contracts.MembershipContract"
     }
 
 }

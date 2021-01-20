@@ -1,7 +1,7 @@
 package net.corda.contractsdk.testapp.flows
 
 import co.paralleluniverse.fibers.Suspendable
-import net.corda.contractsdk.testappcontracts.*
+import net.corda.contractsdk.testapp.contracts.*
 import net.corda.core.contracts.ContractState
 import net.corda.core.contracts.LinearState
 import net.corda.core.contracts.UniqueIdentifier

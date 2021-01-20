@@ -1,9 +1,9 @@
 package net.corda.contractsdk.testappcontracts.test
 
-import net.corda.contractsdk.testappcontracts.LastingMembershipState
-import net.corda.contractsdk.testappcontracts.MembershipContract
-import net.corda.contractsdk.testappcontracts.OneUseMembershipState
-import net.corda.contractsdk.testappcontracts.Status
+import net.corda.contractsdk.testapp.contracts.LastingMembershipState
+import net.corda.contractsdk.testapp.contracts.MembershipContract
+import net.corda.contractsdk.testapp.contracts.OneUseMembershipState
+import net.corda.contractsdk.testapp.contracts.Status
 import net.corda.core.contracts.UniqueIdentifier
 import net.corda.core.identity.CordaX500Name
 import net.corda.testing.core.TestIdentity
@@ -15,7 +15,7 @@ class ContractsTests {
     private val issuerA = TestIdentity(CordaX500Name("Issuer A", "London", "GB"))
     private val clientA = TestIdentity(CordaX500Name("Client A", "London", "GB"))
     private val clientB = TestIdentity(CordaX500Name("Client B", "London", "GB"))
-    private val ledgerServices = MockServices(listOf("net.corda.contractsdk.testappcontracts"), issuerA, clientA, clientB)
+    private val ledgerServices = MockServices(listOf("net.corda.contractsdk.testapp.contracts"), issuerA, clientA, clientB)
 
     @Test
     fun `Membership can be requested`() {
