@@ -14,10 +14,10 @@ to build.gradle of the contracts module makes most sense.
 You will have a choice to make, whether you want to:
 
 1) Fat jar the Contract SDK CorDapp into your contracts jar or
-2) Keep the Contract SDK CorDapp out of your contracts jar and manually add the Contract SDK jar to the Corda transaction as attachment
+2) Keep the Contract SDK CorDapp out of your contracts jar and manually add the Contract SDK jar to the Corda transactions as attachment. Using, for example, [this helper function](examples/test-app/test-app-workflows/src/main/kotlin/net/corda/contractsdk/testapp/Extensions.kt).
 
 The second option has possible negative security implications so unless you are absolutely sure you know what you are doing, it is likely
-to be a better idea to go for the fat jarring. If you want to know how to locate the Contract SDK in the attachment store, look at [this helper function](examples/test-app/test-app-workflows/src/main/kotlin/net/corda/contractsdk/testapp/Extensions.kt).
+to be a better idea to go for the fat jarring.
 
 In order to fat jar the Contract SDK into your contracts jar, you would declare your dependency as:
 
