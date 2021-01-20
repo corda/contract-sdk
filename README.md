@@ -91,7 +91,7 @@ on the input, it won't care if you have 100 of input states of type `SomeOtherSt
 The way the Contract SDK recognizes statuses of the Corda states is by utilizing the `StateWithStatus` interface. A state that wants to expose its status
 to the Contract SDK must implement that interface.
 
-Similarly, the Contract SDK translates roles (e.g. 'buyer') to parties by utilizing the `StateWithRoles` interface. A state that wants to expose the translation of roles to parties
+Similarly, the Contract SDK translates roles (e.g. 'buyer') to parties by utilizing the `StateWithRoles` interface. A state which wants to expose the translation of the roles it recognizes to parties
 must implement that interface.
 
 This means that if you want to use annotations referring to status or roles (e.g. `@PermitStatusOnInput` or `@RequireDistinctPartiesWithinEachInputState`), you will also need to use those two interfaces when defining the Contract states.
