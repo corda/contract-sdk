@@ -193,5 +193,6 @@ Any suggestions / issues are welcome in the issues section: <https://github.com/
 
 ## Disclaimer
 
-Whilst all the verification logic behind each annotation has been tested, always test your contract logic and your entire CorDapp independently and thoroughly before using it in production. Also, please note that
-R3 doesn't provide any support for this utility. Responding to any issues raised will be on best effort basis.
+Please note that the only testing this project has gone through are the unit tests in it and some ad-hoc testing on the deployed [test-app](examples/test-app). 
+Bear that in mind should you want to use this project in, say, production. Always test your contract logic and your entire CorDapp independently and thoroughly. 
+Also, please note that R3 doesn't provide any support for this project. Responding to any issues raised will be on best effort basis.
