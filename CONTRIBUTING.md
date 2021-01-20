@@ -2,7 +2,8 @@
 
 The Contract SDK is an open-source project and contributions are welcome.
 
-Please note that any changes will have to be of high-quality and be well documented.
+Please note that any changes will have to be of high-quality and, unless self-explanatory, be well documented. All tests in the project,
+including tests in any sample apps, have to pass and new tests must be added for any new feature.
 
 ## Branch naming
 
