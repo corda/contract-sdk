@@ -17,8 +17,7 @@ You will have a choice to make, whether you want to:
 2) Keep the Contract SDK CorDapp out of your contracts jar and manually add the Contract SDK jar to the Corda transaction as attachment
 
 The second option has possible negative security implications so unless you are absolutely sure you know what you are doing, it is likely
-to be a better idea to go for the fat jarring. The CorDapp in [examples/test-app](examples/test-app) shows the latter usage purely to illustrate the extra step of attaching the 
-Contract SDK jar manually.
+to be a better idea to go for the fat jarring. If you want to know how to locate the Contract SDK in the attachment store, look at [this helper function](examples/test-app/test-app-workflows/src/main/kotlin/net/corda/contractsdk/testapp/Extensions.kt).
 
 In order to fat jar the Contract SDK into your contracts jar, you would declare your dependency as:
 
