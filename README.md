@@ -132,7 +132,7 @@ Below is the whole list of annotations currently available for use. Click on the
   - <details><summary>ForbidChangeInCoupledLinearStatesExcept</summary>States on input and output must be linear and they must form pairs by linear id. No change in values of properties between input and output is allowed except for the exempt properties listed in the parameter.</details>
 
 Occasionally, you may want to tag the same command (or contract) with the same annotation more than once. For example the `@RequireDistinctPartiesWithinEachInputState` could be a candidate for such use. Kotlin (at least in the version supported by Corda) won't let you 
-do this. But you can still achieve the same effect by using a `@*List` annotation, such as `@RequireDistinctPartiesWithinEachInputStateList`, where you provide the multiple annotations of the same type as a parameter.
+do this. But you can still achieve the same effect by using a `@*List` annotation, such as `@RequireDistinctPartiesWithinEachInputStateList`, where you provide the multiple annotations of the same type as a parameter. [Here](contract-sdk/src/test/kotlin/net/corda/contractsdk/test/statesandcontracts/TestContractAndStates.kt) is an example of such use.
   
 ## What if you need more custom verification logic?  
 
