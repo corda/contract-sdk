@@ -163,7 +163,7 @@ And two state types belonging to this contract.
     @BelongsToContract(MyContract::class)
     class StateTwo(override val participants: List<AbstractParty>) : ContractState
 
-You can target the annotations driving the contract behaviour specifically to a state type using the `targetClasses` parameter. Below we
+You can target the annotations driving the contract behaviour specifically to a list of state types using the `targetClasses` parameter. Below we
 allow the `Issue` command issue exactly one state of type `StateOne` but at least one state of type `StateTwo`.
 
     class MyContract : Contract, StandardContract() {
