@@ -50,7 +50,7 @@ Normally, you would go writing your contract like this:
 
 With the Contract SDK, you don't need to write the `verify` method of your contract. Instead, you extend from the `StandardContract` and you 
 annotate your contract and your commands with annotations defining what you want the contract and commands to accept and enforce. In the below
-snippet, placeholder annotations are used to illustrate the concept. Full list of annotations available to you is described in the next section of this document.
+snippet, placeholder annotations are used to illustrate the concept. The full list of annotations available to you is in the next section of this document.
 
     @Annotation_Defining_What_The_Contract_Requires_Or_Enforces_Always_1
     @Annotation_Defining_What_The_Contract_Requires_Or_Enforces_Always_2
