@@ -34,6 +34,7 @@ Normally, you would go writing your contract like this:
 
       override fun verify(tx: LedgerTransaction) {
           // Verification logic here. Typically some kind of
+          // get the command from the transaction
           // when (command) {
           //  is Action -> do some checks
           //  is SomeOtherAction -> do some other checks
