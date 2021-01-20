@@ -84,7 +84,7 @@ such as, for example:
 * @RequireStatusChangeInCoupledLinearStates('Pending','Active')
 * @ForbidChangeInCoupledLinearStatesExcept('status','authorizedBy')
 
-The only states in the transaction under verification which the annotations apply to are the states which belong to the contract (`@BelongsToContract`). So for example if you defined contract `MyContract` and
+The only states in the transaction under verification which the annotations apply to are the states which belong to the contract (`@BelongsToContract`). So for example, if you defined contract `MyContract` and
 contract state `MyState` which belongs to `MyContract` and `MyContract` is annotated with `@RequireNumberOfStatesOnInputBetween(0,5)`, then whilst the contract will only allow 0 to 5 of `MyState`s 
 on the input it won't care if you have 100 of input states of type `SomeOtherState` which doesn't belong to `MyContract`. Even this can be further narrowed down by using the `targetClasses` parameter of the annotations. More about it later in this readme.
 
