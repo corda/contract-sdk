@@ -30,6 +30,10 @@ lib/dokka.jar
 .idea/copyright
 .idea/jsLibraryMappings.xml
 
+examples/test-app/.idea/*.xml
+examples/test-app/.idea/copyright
+examples/test-app/.idea/jsLibraryMappings.xml
+
 # User-specific stuff:
 .idea/tasks.xml
 .idea/dictionaries
