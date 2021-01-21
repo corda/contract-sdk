@@ -26,6 +26,10 @@ In order to keep the Contract SDK jar separate, you would declare your dependenc
 
 `cordaCompile "com.r3.corda.lib.contracts:contract-sdk:$corda_contracts_sdk_version"`
 
+The only version available at the moment is `0.9-SNAPSHOT`. Make sure you have this repository declared in your `build.gradle`: 
+
+`maven { url 'https://ci-artifactory.corda.r3cev.com/artifactory/corda-lib-dev' }`
+
 ### You got the dependency set, how do you write contracts now?
 
 Normally, you would go writing your contract like this:
