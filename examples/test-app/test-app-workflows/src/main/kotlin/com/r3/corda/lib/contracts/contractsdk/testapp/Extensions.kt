@@ -1,6 +1,6 @@
-package net.corda.contractsdk.testapp
+package com.r3.corda.lib.contracts.contractsdk.testapp
 
-import net.corda.contractsdk.ContractSDKJarMarker
+import com.r3.corda.lib.contracts.contractsdk.ContractSDKJarMarker
 import net.corda.core.node.ServiceHub
 import net.corda.core.transactions.TransactionBuilder
 

@@ -1,9 +1,9 @@
-package net.corda.contractsdk.testapp.contracts.test
+package com.r3.corda.lib.contracts.contractsdk.testapp.contracts.test
 
-import net.corda.contractsdk.testapp.contracts.LastingMembershipState
-import net.corda.contractsdk.testapp.contracts.MembershipContract
-import net.corda.contractsdk.testapp.contracts.OneUseMembershipState
-import net.corda.contractsdk.testapp.contracts.Status
+import com.r3.corda.lib.contracts.contractsdk.testapp.contracts.LastingMembershipState
+import com.r3.corda.lib.contracts.contractsdk.testapp.contracts.MembershipContract
+import com.r3.corda.lib.contracts.contractsdk.testapp.contracts.OneUseMembershipState
+import com.r3.corda.lib.contracts.contractsdk.testapp.contracts.Status
 import net.corda.core.contracts.UniqueIdentifier
 import net.corda.core.identity.CordaX500Name
 import net.corda.testing.core.TestIdentity

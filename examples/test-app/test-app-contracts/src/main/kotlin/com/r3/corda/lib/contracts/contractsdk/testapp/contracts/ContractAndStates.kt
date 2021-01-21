@@ -1,8 +1,8 @@
-package net.corda.contractsdk.testapp.contracts
+package com.r3.corda.lib.contracts.contractsdk.testapp.contracts
 
-import net.corda.contractsdk.StandardContract
-import net.corda.contractsdk.annotations.*
-import net.corda.contractsdk.verifiers.StandardState
+import com.r3.corda.lib.contracts.contractsdk.StandardContract
+import com.r3.corda.lib.contracts.contractsdk.annotations.*
+import com.r3.corda.lib.contracts.contractsdk.verifiers.StandardState
 import net.corda.core.contracts.*
 import net.corda.core.identity.AbstractParty
 import net.corda.core.identity.Party
