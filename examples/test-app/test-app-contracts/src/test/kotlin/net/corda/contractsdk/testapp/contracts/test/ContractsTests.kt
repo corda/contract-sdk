@@ -15,7 +15,7 @@ class ContractsTests {
     private val issuerA = TestIdentity(CordaX500Name("Issuer A", "London", "GB"))
     private val clientA = TestIdentity(CordaX500Name("Client A", "London", "GB"))
     private val clientB = TestIdentity(CordaX500Name("Client B", "London", "GB"))
-    private val ledgerServices = MockServices(listOf("net.corda.contractsdk.testapp.contracts"), issuerA, clientA, clientB)
+    private val ledgerServices = MockServices(listOf("com.r3.corda.lib.contracts.contractsdk.testapp.contracts"), issuerA, clientA, clientB)
 
     @Test
     fun `Membership can be requested`() {

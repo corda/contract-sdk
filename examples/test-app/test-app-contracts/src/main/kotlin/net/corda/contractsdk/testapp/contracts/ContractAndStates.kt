@@ -42,7 +42,7 @@ class MembershipContract : StandardContract(), Contract {
     }
 
     companion object {
-        val ID = "net.corda.contractsdk.testapp.contracts.MembershipContract"
+        val ID = "com.r3.corda.lib.contracts.contractsdk.testapp.contracts.MembershipContract"
     }
 
 }
