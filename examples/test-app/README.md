@@ -1,0 +1,45 @@
+# Examples/Test-App
+
+### Description
+
+This is a very simple CorDapp demonstrating the use of the Contract SDK. The app deals with memberships and their management. 
+It consists of two modules: test-app-contracts and test-app-workflows.
+
+#### Test-App-Contracts
+
+The state classes and the contract are defined in [ContractAndState.kt](test-app-contracts/src/main/kotlin/com/r3/corda/lib/contracts/contractsdk/testapp/contracts/ContractAndStates.kt).
+There are two types of membership, each is represented by its own `ContractState` class:
+
+* `LastingMembershipState`
+* `OneUseMembershipState`
+
+Each can be in one of these two statuses:
+
+* Pending
+* Active
+
+Each has two other properties of type `Party`, in the Contract SDK speak those would be "roles":
+
+* Owner
+* Issuer
+
+The actions (i.e. commands) which can be executed on the memberships are the following. To understand what they expect and enforce just look at their definition
+in the `MembershipContract` and the associated annotations ;-)
+
+* Request
+* Activate
+* Revoke
+* Use
+
+#### Test-App-Workflows
+
+The flows are deliberately generic so that they let you create transactions which are deemed invalid by the `MembershipContract`.
+Thus you can check for yourself that the contract created with the Contract SDK behaves as expected. The flows are:
+
+* Issue
+* Modify
+* Deissue
+
+### Usage
+
+you use it like a boss
