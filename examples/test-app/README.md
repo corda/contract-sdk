@@ -2,8 +2,8 @@
 
 ### Description
 
-This is a very simple CorDapp demonstrating the use of the Contract SDK. The app deals with memberships and their management. 
-It consists of two modules: test-app-contracts and test-app-workflows.
+This is a very simple CorDapp demonstrating the use of the Contract SDK. The app allows creating memberships and managing them. 
+It consists of two modules: `test-app-contracts` and `test-app-workflows`.
 
 #### Test-App-Contracts
 
@@ -18,7 +18,7 @@ Each can be in one of these two statuses:
 * Pending
 * Active
 
-Each has two other properties of type `Party`, in the Contract SDK speak those would be "roles":
+Each has two other properties, of type `Party`. In the Contract SDK speak those would be "roles":
 
 * Owner
 * Issuer
@@ -34,7 +34,7 @@ in the `MembershipContract` and the associated annotations ;-)
 #### Test-App-Workflows
 
 The flows are deliberately generic so that they let you create transactions which are deemed invalid by the `MembershipContract`.
-Thus you can check for yourself that the contract created with the Contract SDK behaves as expected. The flows are:
+Thus you can check for yourself that the contract written with the Contract SDK behaves as expected. The flows are:
 
 * Issue
 * Modify
@@ -42,7 +42,7 @@ Thus you can check for yourself that the contract created with the Contract SDK 
 
 ### Usage
 
-Here are some examples of flows invocation:
+Here are some examples of flows invocation via the node shell:
 
 * flow start IssueInitiator membershipType: LASTING, issuer: Operator, owner: Client, status: PENDING
 * flow start ModifyInitiator identifier: 35ddf139-bf18-496c-96ef-f8dc00ad5dd2, command: Activate, status: ACTIVE
