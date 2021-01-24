@@ -14,7 +14,7 @@ to the `build.gradle` of the contracts module makes most sense.
 You will have a choice to make, whether you want to:
 
 1) Include the Contract SDK CorDapp code into your contracts jar (aka "fat jar" it) or
-2) Keep the Contract SDK CorDapp out of your contracts jar, and manually add the Contract SDK jar to the Corda transactions as attachment when needed. Using, for example, [this helper function](examples/test-app/test-app-workflows/src/main/kotlin/net/corda/contractsdk/testapp/Extensions.kt).
+2) Keep the Contract SDK CorDapp out of your contracts jar, and manually add the Contract SDK jar to the Corda transactions as attachment when needed. Using, for example, [this helper function](examples/test-app/test-app-workflows/src/main/kotlin/com/r3/corda/lib/contracts/contractsdk/testapp/Extensions.kt).
 
 If you decide for the second option, you need to provide checks stopping a potential attacker from using different (and possibly malicious) version of the Contract SDK jar to the one intended. 
 
@@ -75,7 +75,7 @@ Note that `MyContract` here still must extend the `Contract` class, else it won'
 
 ### What annotations are available to you?
 
-As of now, there are over 30 annotations that you can use on the contract or command level. You can view them further down in this readme or in [Annotations.kt](contract-sdk/src/main/kotlin/net/corda/contractsdk/annotations/Annotations.kt). 
+As of now, there are over 30 annotations that you can use on the contract or command level. You can view them further down in this readme or in [Annotations.kt](contract-sdk/src/main/kotlin/com/r3/corda/lib/contracts/contractsdk/annotations/Annotations.kt). 
 Their names follow a convention that should make it easier to find the annotation you are after. Each annotation follows this pattern:
 
 `@[Require|Permit|Forbid][Subject][Scope][AnyOtherQualifier](parameter1, parameter2...)` 
@@ -99,7 +99,7 @@ Similarly, the Contract SDK translates roles (e.g. 'buyer') to parties by utiliz
 must implement that interface.
 
 This means that if you want to use annotations referring to statuses or roles (e.g. `@PermitStatusOnInput` or `@RequireDistinctPartiesWithinEachInputState`), you will also need to use those two interfaces when defining the Contract states.
-You can see an example of that in the [examples/test-app](examples/test-app/test-app-contracts/src/main/kotlin/net/corda/contractsdk/testapp/contracts/ContractAndStates.kt), where the `Membership` states implement both of the interfaces (for convenience collapsed into `StandardState` interface).
+You can see an example of that in the [examples/test-app](examples/test-app/test-app-contracts/src/main/kotlin/com/r3/corda/lib/contracts/contractsdk/testapp/contracts/ContractAndStates.kt), where the `Membership` states implement both of the interfaces (for convenience collapsed into `StandardState` interface).
 
 Below is the whole list of annotations currently available for use. Click on the black triangle for a short description.
 
@@ -136,7 +136,7 @@ Below is the whole list of annotations currently available for use. Click on the
   - <details><summary>ForbidChangeInCoupledLinearStatesExcept</summary>States on input and output must be linear and they must form pairs by linear id. No change in values of properties between input and output is allowed except for the exempt properties listed in the parameter.</details>
 
 Occasionally, you may want to tag the same command (or contract) with the same annotation more than once. For example the `@RequireDistinctPartiesWithinEachInputState` could be a candidate for such use. Kotlin (at least in the version supported by Corda) won't let you 
-do this. But you can still achieve the same effect by using a `@*List` annotation, such as `@RequireDistinctPartiesWithinEachInputStateList`, where you provide the multiple annotations of the same type as a parameter. [Here](contract-sdk/src/test/kotlin/net/corda/contractsdk/test/statesandcontracts/TestContractAndStates.kt) is an example of such use.
+do this. But you can still achieve the same effect by using a `@*List` annotation, such as `@RequireDistinctPartiesWithinEachInputStateList`, where you provide the multiple annotations of the same type as a parameter. [Here](contract-sdk/src/test/kotlin/com/r3/corda/lib/contracts/contractsdk/test/statesandcontracts/TestContractAndStates.kt) is an example of such use.
   
 ## What if you need more custom verification logic?  
 
