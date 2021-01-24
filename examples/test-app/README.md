@@ -42,4 +42,10 @@ Thus you can check for yourself that the contract created with the Contract SDK 
 
 ### Usage
 
-you use it like a boss
+Here are some examples of flows invocation:
+
+* flow start IssueInitiator membershipType: LASTING, issuer: Operator, owner: Client, status: PENDING
+* flow start ModifyInitiator identifier: 35ddf139-bf18-496c-96ef-f8dc00ad5dd2, command: Activate, status: ACTIVE
+
+You will, of course, need to replace the identifier with the one of your membership state. Also, the activation of the membership
+must be run from the issuer's node. In this example that's from the Operator's node.
