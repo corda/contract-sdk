@@ -48,4 +48,5 @@ Here are some examples of flows invocation via the node shell:
 * flow start ModifyInitiator identifier: 35ddf139-bf18-496c-96ef-f8dc00ad5dd2, command: Activate, status: ACTIVE
 
 You will, of course, need to replace the identifier with the one of your membership state. Also, the activation of the membership
-must be run from the issuer's node. In this example that's from the Operator's node.
+must be run from the issuer's node. In this example that means from the Operator's node. If you tried to run it from the owner's node, 
+the contract would complain about the issuer's signature missing.
