@@ -37,12 +37,15 @@ Normally, you would go writing your contract like this:
     class MyContract : Contract {
 
       override fun verify(tx: LedgerTransaction) {
-          // Verification logic here. Typically some kind of
-          // get the command from the transaction
-          // when (command) {
-          //  is Action -> do some checks
-          //  is SomeOtherAction -> do some other checks
-          // }
+          /*
+            Verification logic here. Typically following the lines of:
+            
+            get the command from the transaction
+            when (command) {
+             is Action -> do some checks
+             is SomeOtherAction -> do some other checks
+            }
+          */
       }
     
       interface Commands : CommandData {
