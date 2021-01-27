@@ -149,6 +149,12 @@ If you need to provide further verification logic, which is not offered by the a
 This method will be called on every transaction the contract verifies.
 2. Have any of your commands implement the interface `StandardCommand` and its method `verifyFurther`. This method will be called
 if the transaction being verified contains that command. 
+
+It may be useful to know in which order the verification happens, so that you know what you can count on as already checked. 
+
+1. First the verification as per the annotations happens
+2. Then the `StandardContract.verifyFurther` is called
+3. Followed by `StandardCommand.verifyFurther`
   
 ## What if you have multiple state types belonging to the same contract and you want different verification rules for each?
 
