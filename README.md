@@ -4,6 +4,7 @@
 
 * you want to write Corda contracts with minimum code
 * you want to write Corda contracts which are easy to read and understand
+* you want to visualize your Corda contracts as described here: [Automatic visualization of Corda contracts](https://medium.com/corda/automatic-visualization-of-corda-contracts-25686a18cc2d)
 
 ### What do you need to do to use it?
 
