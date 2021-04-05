@@ -45,7 +45,7 @@ class IssueInitiator(val membershipType: MembershipType, val issuer: Party, val 
         val fullySigned = subFlow(CollectSignaturesFlow(locallySigned, sessions))
 
         subFlow(FinalityFlow(fullySigned, sessions))
-        return identifier.externalId!!
+        return identifier.toString()
     }
 }
 
