@@ -28,10 +28,43 @@ pipeline {
                 sh './gradlew --no-daemon -s clean build test deployNodes'
             }
         }
+        stage('Publish to Artifactory') {
+            when {
+                expression { params.DO_PUBLISH }
+                beforeAgent true
+            }
+            steps {
+                rtServer(
+                        id: 'R3-Artifactory',
+                        url: 'https://software.r3.com/artifactory',
+                        credentialsId: 'artifactory-credentials'
+                )
+                rtGradleDeployer(
+                        id: 'deployer',
+                        serverId: 'R3-Artifactory',
+                        repo: isRelease ? 'corda-lib' : 'corda-lib-dev'
+                )
+                rtGradleRun(
+                        usesPlugin: true,
+                        useWrapper: true,
+                        switches: publishOptions,
+                        tasks: 'artifactoryPublish',
+                        deployerId: 'deployer',
+                        buildName: env.ARTIFACTORY_BUILD_NAME
+                )
+                rtPublishBuildInfo(
+                        serverId: 'R3-Artifactory',
+                        buildName: env.ARTIFACTORY_BUILD_NAME
+                )
+            }
+        }
     }
     post {
+        always {
+            junit '**/build/test-results/**/*.xml'
+        }
         cleanup {
-            deleteDir()
+            deleteDir() /* clean up our workspace */
         }
     }
 }
