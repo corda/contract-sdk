@@ -23,9 +23,9 @@ pipeline {
         buildDiscarder(logRotator(daysToKeepStr: '7', artifactDaysToKeepStr: '7'))
     }
     stages {
-        stage('Build') {
+        stage('Build contract-sdk') {
             steps {
-                sh './gradlew --no-daemon -s clean build test deployNodes'
+                sh './gradlew clean build --no-daemon --refresh-dependencies --info'
             }
         }
         stage('Publish to Artifactory') {
