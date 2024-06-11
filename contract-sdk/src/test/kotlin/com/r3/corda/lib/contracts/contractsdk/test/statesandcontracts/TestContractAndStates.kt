@@ -145,7 +145,7 @@ class TestLinearStateWithStatus(val status : String, override val linearId: Uniq
 class TestStateWithRoles(val x : Party, val y : Party, val z : Party, val u : Party? = null, override val participants: List<AbstractParty> = listOf(x, y, z)) : StateWithRoles, ContractState {
 
     override fun getParty(role: String): Party {
-        return when (role.toUpperCase()) {
+        return when (role.uppercase()) {
             "X" -> x
             "Y" -> y
             "Z" -> z
@@ -160,7 +160,7 @@ class TestStateWithRoles(val x : Party, val y : Party, val z : Party, val u : Pa
 class TestLinearStateWithRoles(val x : Party, val y : Party, val z : Party, val u : Party? = null, override val linearId: UniqueIdentifier, override val participants: List<AbstractParty> = listOf(x, y, z)) : StateWithRoles, LinearState {
 
     override fun getParty(role: String): Party {
-        return when (role.toUpperCase()) {
+        return when (role.uppercase()) {
             "X" -> x
             "Y" -> y
             "Z" -> z

@@ -93,7 +93,7 @@ class TestContract2 : StandardContract(), Contract {
     class TestState_A(val x : Party?, val y : Party?, val z : Party?, override val linearId: UniqueIdentifier, val status : String?, override val participants: List<AbstractParty>) : StandardState, LinearState {
 
         override fun getParty(role: String): Party {
-            return when (role.toUpperCase()) {
+            return when (role.uppercase()) {
                 "X" -> x!!
                 "Y" -> y!!
                 "Z" -> z!!
@@ -109,7 +109,7 @@ class TestContract2 : StandardContract(), Contract {
     class TestState_B(val x : Party?, val y : Party?, val z : Party?, override val linearId: UniqueIdentifier, val status : String?, override val participants: List<AbstractParty>) : StandardState, LinearState {
 
         override fun getParty(role: String): Party {
-            return when (role.toUpperCase()) {
+            return when (role.uppercase()) {
                 "X" -> x!!
                 "Y" -> y!!
                 "Z" -> z!!
