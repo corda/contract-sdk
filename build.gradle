@@ -26,6 +26,7 @@ buildscript {
         maven_resolver_version = constants.getProperty("mavenResolverVersion")
         publicArtifactURL = constants.getProperty('publicArtifactURL')
         corda_platform_version = constants.getProperty("platformVersion").toInteger()
+        artifactPluginVersion = constants.getProperty("artifactPluginVersion")
     }
 
     repositories {
@@ -49,6 +50,7 @@ buildscript {
 
 plugins {
     id 'maven-publish'
+    id "com.jfrog.artifactory" version "$artifactPluginVersion"
 }
 
 allprojects {
