@@ -81,7 +81,7 @@ class ModifyInitiator(val identifier : String, val command : String, val status:
 
         val notary = serviceHub.networkMapCache.notaryIdentities.first()
         val txBuilder = TransactionBuilder(notary = notary)
-        when (command.toUpperCase()) {
+        when (command.uppercase()) {
             "ACTIVATE" -> txBuilder.addCommand(MembershipContract.Commands.Activate(), listOf(ourIdentity.owningKey))
             else -> throw RuntimeException("Unrecognized command '$command'")
         }
@@ -115,7 +115,7 @@ class DeissueInitiator(val identifier : String, val command : String) : FlowLogi
 
         val notary = serviceHub.networkMapCache.notaryIdentities.first()
         val txBuilder = TransactionBuilder(notary = notary)
-        when (command.toUpperCase()) {
+        when (command.uppercase()) {
             "REVOKE" -> txBuilder.addCommand(MembershipContract.Commands.Revoke(), listOf(ourIdentity.owningKey))
             "USE" -> txBuilder.addCommand(MembershipContract.Commands.Use(), listOf(ourIdentity.owningKey))
             else -> throw RuntimeException("Unrecognized command '$command'")

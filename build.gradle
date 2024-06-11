@@ -1,31 +1,39 @@
-import static org.gradle.api.JavaVersion.VERSION_1_8
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import static org.gradle.api.JavaVersion.VERSION_17
+import static org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+import static org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
 
 buildscript {
+    Properties constants = new Properties()
+    file("$projectDir/./constants.properties").withInputStream { constants.load(it) }
+
     ext {
-        corda_core_release_group = 'net.corda'
-        corda_release_group = 'net.corda'
-        corda_release_version = '4.6'
-        corda_core_release_version = '4.6'
-        contract_sdk_release_group = "com.r3.corda.lib.contracts"
-        contract_sdk_release_version = "0.9-SNAPSHOT"
-        corda_gradle_plugins_version = '5.0.12'
-        kotlin_version = '1.2.71'
-        junit_version = '4.12'
-        dokka_version = '0.9.17'
-        slf4j_version = '1.7.25'
-        log4j_version = '2.9.1'
-        jackson_version = '2.9.0'
-        aetherVersion = '1.0.0.v20140518'
-        mavenVersion = '3.1.0'
-        maven_resolver_version = "1.1.1"
+        corda_core_release_group =  constants.getProperty("cordaCoreReleaseGroup")
+        corda_release_group = constants.getProperty("cordaReleaseGroup")
+        corda_release_version = constants.getProperty("cordaVersion")
+        corda_core_release_version = constants.getProperty("cordaCoreVersion")
+        contract_sdk_release_group = constants.getProperty("contractSdkReleaseGroup")
+        contract_sdk_release_version = constants.getProperty("contractSdkReleaseVersion")
+        corda_gradle_plugins_version = constants.getProperty("cordaGradlePluginsVersion")
+        kotlin_version = constants.getProperty("kotlinVersion")
+        junit_version = constants.getProperty("junitVersion")
+        dokka_version = constants.getProperty("dokkaVersion")
+        slf4j_version = constants.getProperty("slf4jVersion")
+        log4j_version = constants.getProperty("log4jVersion")
+        jackson_version = constants.getProperty("jacksonVersion")
+        aetherVersion = constants.getProperty("aetherVersion")
+        mavenVersion = constants.getProperty("mavenVersion")
+        maven_resolver_version = constants.getProperty("mavenResolverVersion")
+        publicArtifactURL = constants.getProperty('publicArtifactURL')
+        corda_platform_version = constants.getProperty("platformVersion").toInteger()
     }
 
     repositories {
         jcenter()
         mavenCentral()
         mavenLocal()
-        maven { url "http://ci-artifactory.corda.r3cev.com/artifactory/corda-releases" }
-        maven { url "http://ci-artifactory.corda.r3cev.com/artifactory/corda-dependencies" }
+        maven { url "$publicArtifactURL/corda-releases" }
+        maven { url "$publicArtifactURL/corda-dependencies" }
         maven { url "https://repo.gradle.org/gradle/libs-releases-local/" }
     }
 
@@ -40,50 +48,49 @@ buildscript {
 }
 
 plugins {
-    id "com.jfrog.artifactory" version "4.7.5"
+    id 'org.jetbrains.kotlin.plugin.jpa' version "$kotlin_version" apply false
+    id 'maven-publish'
 }
 
 allprojects {
     version "$contract_sdk_release_version"
     group "$contract_sdk_release_group"
-
-    configurations.all {
-        resolutionStrategy {
-            // Force dependencies to use the same version of Kotlin
-            force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-            force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-            force "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
-            force "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-            force "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-
-            cacheChangingModulesFor 0, 'seconds'
-        }
-    }
 }
 
 subprojects {
+    apply plugin: 'org.jetbrains.kotlin.jvm'
+    apply plugin: 'net.corda.plugins.quasar-utils'
+
     repositories {
         jcenter()
         mavenCentral()
         mavenLocal()
         maven { url 'https://jitpack.io' }
-        maven { url "http://ci-artifactory.corda.r3cev.com/artifactory/corda-dev" }
-        maven { url "http://ci-artifactory.corda.r3cev.com/artifactory/corda-releases" }
-        maven { url "http://ci-artifactory.corda.r3cev.com/artifactory/corda-lib" }
-        maven { url "http://ci-artifactory.corda.r3cev.com/artifactory/corda-lib-dev" }
+        maven { url "$publicArtifactURL/corda-dependencies" }
+        maven { url "$publicArtifactURL/corda-releases" }
+        maven { url "$publicArtifactURL/corda-dev" }
+        maven { url "$publicArtifactURL/corda-lib" }
+        maven { url "$publicArtifactURL/corda-lib-dev" }
         maven { url "https://repo.gradle.org/gradle/libs-releases-local/" }
-        maven { url "http://ci-artifactory.corda.r3cev.com/artifactory/corda-dependencies" }
     }
 
-    apply plugin: 'kotlin'
-
-    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
-        kotlinOptions {
-            languageVersion = "1.2"
-            apiVersion = "1.2"
-            jvmTarget = VERSION_1_8
+    tasks.withType(KotlinCompile).configureEach {
+        compilerOptions {
+            languageVersion = KOTLIN_1_9
+            apiVersion = KOTLIN_1_9
+            jvmTarget = JVM_17
             javaParameters = true   // Useful for reflection.
+            freeCompilerArgs = ['-Xjvm-default=all-compatibility']
         }
+    }
+
+    java {
+        sourceCompatibility = VERSION_17
+        targetCompatibility = VERSION_17
+    }
+
+    compileJava {
+        options.compilerArgs << '-parameters'
     }
 
     tasks.withType(Jar) {
@@ -99,21 +106,16 @@ subprojects {
 }
 
 // Don't publish an empty "modules" JAR.
-def publishProjects = [
-        project(":contract-sdk"),
-]
+def publishProjects = [project(":contract-sdk")]
 
-configure(publishProjects) { subproject ->
-    apply plugin: 'maven-publish'
-    apply plugin: 'com.jfrog.artifactory'
-
+configure(publishProjects) { Project subproject ->
     task sourceJar(type: Jar, dependsOn: subproject.classes) {
-        classifier = 'sources'
+        archiveClassifier = 'sources'
         from sourceSets.main.allSource
     }
 
     task javadocJar(type: Jar, dependsOn: subproject.javadoc) {
-        classifier = 'javadoc'
+        archiveClassifier = 'javadoc'
         from javadoc.destinationDir
     }
 
@@ -136,28 +138,3 @@ configure(publishProjects) { subproject ->
         }
     }
 }
-
-
-artifactory {
-    publish {
-        contextUrl = 'https://ci-artifactory.corda.r3cev.com/artifactory'
-        repository {
-            repoKey = 'corda-lib-dev'
-            username = System.getenv('CORDA_ARTIFACTORY_USERNAME') ?: System.getProperty('corda.artifactory.username')
-            password = System.getenv('CORDA_ARTIFACTORY_PASSWORD') ?: System.getProperty('corda.artifactory.password')
-        }
-
-        defaults {
-            if (publishProjects.contains(project)) {
-                publications(project.name)
-            }
-        }
-    }
-}
-
-wrapper {
-    gradleVersion = "5.6"
-    distributionType = Wrapper.DistributionType.ALL
-}
-
-//add for test re-run

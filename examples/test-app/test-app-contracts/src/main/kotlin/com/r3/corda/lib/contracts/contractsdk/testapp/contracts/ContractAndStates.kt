@@ -49,7 +49,7 @@ class MembershipContract : StandardContract(), Contract {
 
 abstract class Membership(val owner: Party, val issuer: Party, val status : Status) : StandardState {
     override fun getParty(role: String): Party {
-        return when (role.toUpperCase()) {
+        return when (role.uppercase()) {
             "ISSUER" -> issuer
             "OWNER" -> owner
             else -> throw RuntimeException("Unrecognized role '$role'")
