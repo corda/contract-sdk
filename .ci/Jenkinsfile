@@ -12,10 +12,28 @@
 import static com.r3.build.BuildControl.killAllExistingBuildsForJob
 killAllExistingBuildsForJob(env.JOB_NAME, env.BUILD_NUMBER.toInteger())
 
+def isReleaseTag() {
+    return (env.TAG_NAME =~ /^release-.*$/)
+}
+
+def isReleaseCandidate() {
+    return (isReleaseTag()) && (env.TAG_NAME =~ /.*-(RC|HC)\d+(-.*)?/)
+}
+
+def isReleaseBranch() {
+    return (env.BRANCH_NAME =~ /^release\/.*$/)
+}
+
+def isRelease = isReleaseTag() || isReleaseCandidate()
+String publishOptions = (isReleaseBranch() || isRelease) ? "-s --info" : "--no-daemon -s -PversionFromGit"
+
 pipeline {
-    agent {
-        label 'eight-cores'
+    agent { label 'standard' }
+
+    parameters {
+        booleanParam name: 'DO_PUBLISH', defaultValue: (isRelease || isReleaseBranch()), description: 'Publish artifacts to Artifactory?'
     }
+
     options {
         ansiColor('xterm')
         timestamps()
