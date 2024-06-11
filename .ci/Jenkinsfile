@@ -33,13 +33,6 @@ pipeline {
                 sh './gradlew clean build --no-daemon --refresh-dependencies'
             }
         }
-        stage('Deploy test CorDapp') {
-            steps {
-                dir('examples/test-app') {
-                    sh './gradlew clean deployNodes --no-daemon --refresh-dependencies'
-                }
-            }
-        }
         stage('Publish to Artifactory') {
             when {
                 expression { params.DO_PUBLISH }
