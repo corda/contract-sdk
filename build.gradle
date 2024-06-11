@@ -48,7 +48,6 @@ buildscript {
 }
 
 plugins {
-    id 'org.jetbrains.kotlin.plugin.jpa' version "$kotlin_version" apply false
     id 'maven-publish'
 }
 
