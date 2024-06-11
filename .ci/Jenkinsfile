@@ -30,12 +30,14 @@ pipeline {
     stages {
         stage('Build contract-sdk') {
             steps {
-                sh './gradlew clean build --no-daemon --refresh-dependencies --info'
+                sh './gradlew clean build --no-daemon --refresh-dependencies'
             }
         }
         stage('Deploy test CorDapp') {
             steps {
-                sh './gradlew clean examples:test-app:deployNodes --no-daemon --refresh-dependencies --info'
+                dir('examples/test-app') {
+                    sh './gradlew clean deployNodes --no-daemon --refresh-dependencies'
+                }
             }
         }
         stage('Publish to Artifactory') {
