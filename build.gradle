@@ -138,4 +138,21 @@ configure(publishProjects) { Project subproject ->
             }
         }
     }
+
+    artifactory {
+        publish {
+            contextUrl = 'https://software.r3.com/artifactory'
+            repository {
+                repoKey = 'corda-lib-dev'
+                username = System.getenv('ARTIFACTORY_USERNAME') ?: System.getProperty('corda.artifactory.username')
+                password = System.getenv('ARTIFACTORY_PASSWORD') ?: System.getProperty('corda.artifactory.password')
+            }
+
+            defaults {
+                if (publishProjects.contains(project)) {
+                    publications(project.name)
+                }
+            }
+        }
+    }
 }
