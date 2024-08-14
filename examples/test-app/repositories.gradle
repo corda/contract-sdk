@@ -1,9 +1,9 @@
 repositories {
     mavenLocal()
     mavenCentral()
-    jcenter()
+    maven { url "${publicArtifactURL}/jcenter-backup" }
     maven { url 'https://jitpack.io' }
-    maven { url 'https://ci-artifactory.corda.r3cev.com/artifactory/corda' }
+    maven { url "${publicArtifactURL}/corda" }
     maven { url 'https://repo.gradle.org/gradle/libs-releases' }
-    maven { url 'https://software.r3.com/artifactory/corda-lib-dev' }
+    maven { url "${publicArtifactURL}/corda-lib-dev" }
 }

@@ -18,15 +18,16 @@ buildscript {
         aetherVersion = '1.0.0.v20140518'
         mavenVersion = '3.1.0'
         maven_resolver_version = "1.1.1"
+        publicArtifactURL = 'https://download.corda.net/maven'
     }
 
     repositories {
-        jcenter()
         mavenCentral()
         mavenLocal()
-        maven { url "http://ci-artifactory.corda.r3cev.com/artifactory/corda-releases" }
-        maven { url "http://ci-artifactory.corda.r3cev.com/artifactory/corda-dependencies" }
+        maven { url "${publicArtifactURL}/corda-releases" }
+        maven { url "${publicArtifactURL}/corda-dependencies" }
         maven { url "https://repo.gradle.org/gradle/libs-releases-local/" }
+        maven { url "${publicArtifactURL}/jcenter-backup" }
     }
 
     dependencies {
@@ -63,16 +64,16 @@ allprojects {
 
 subprojects {
     repositories {
-        jcenter()
         mavenCentral()
         mavenLocal()
         maven { url 'https://jitpack.io' }
-        maven { url "http://ci-artifactory.corda.r3cev.com/artifactory/corda-dev" }
-        maven { url "http://ci-artifactory.corda.r3cev.com/artifactory/corda-releases" }
-        maven { url "http://ci-artifactory.corda.r3cev.com/artifactory/corda-lib" }
-        maven { url "http://ci-artifactory.corda.r3cev.com/artifactory/corda-lib-dev" }
+        maven { url "${publicArtifactURL}/corda-dev" }
+        maven { url "${publicArtifactURL}/corda-releases" }
+        maven { url "${publicArtifactURL}//corda-lib" }
+        maven { url "${publicArtifactURL}/corda-lib-dev" }
         maven { url "https://repo.gradle.org/gradle/libs-releases-local/" }
-        maven { url "http://ci-artifactory.corda.r3cev.com/artifactory/corda-dependencies" }
+        maven { url "${publicArtifactURL}/corda-dependencies" }
+        maven { url "${publicArtifactURL}/jcenter-backup" }
     }
 
     apply plugin: 'kotlin'
